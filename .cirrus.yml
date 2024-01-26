@@ -10,8 +10,8 @@ env:
 task:
   name: Test
   skip: $CIRRUS_BRANCH == 'master'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
-  timeout_in: 2m
+  only_if: $CIRRUS_REPO_OWNER == 'ismasrull'
+  timeout_in: 1m
   persistent_worker:
     labels:
       name: AX61-2
@@ -28,7 +28,7 @@ task:
 task:
   name: Build
   skip: $CIRRUS_BRANCH == 'master'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
+  only_if: $CIRRUS_REPO_OWNER == 'ismasrull'
   depends_on: Test
   timeout_in: 4h
   persistent_worker:
@@ -55,7 +55,7 @@ task:
 task:
   name: Post Build
   skip: $CIRRUS_BRANCH == 'master'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
+  only_if: $CIRRUS_REPO_OWNER == 'ismasrull'
   skip_notifications: true
   depends_on: Build
   timeout_in: 2m
